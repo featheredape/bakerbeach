@@ -2,8 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Baker Beach Slope and Shoreline Protection Project</title>
+        <title>Baker Beach – Shoreline Restoration Project</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Baker Beach Shoreline Restoration Project – a nature-based, geotechnically sound approach to protecting Salt Spring Island's coastline."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+            rel="stylesheet"
+        />
         <script src="https://player.vimeo.com/api/player.js"></script>
         <!-- Privacy-friendly analytics by Plausible -->
         <script
@@ -23,510 +33,1796 @@
                     }));
             plausible.init();
         </script>
-
         <style>
-            /* Basic reset */
-            body,
-            h1,
-            h2,
-            h3,
-            p,
-            ul,
-            li {
+            *,
+            *::before,
+            *::after {
                 margin: 0;
                 padding: 0;
-            }
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                color: #333;
-                background-color: #f4f4f4;
-            }
-            header {
-                background-color: #fff;
-                color: #003366;
-                padding: 1rem;
-                text-align: center;
-                border-bottom: 2px solid #003366;
-                background-image: url("img/erosion1.jpeg");
-                background-size: cover; /* Scales the image to cover the header area */
-                background-position: center; /* Centers the image */
-                background-repeat: no-repeat;
-                position: relative;
-            }
-            nav {
-                background: #333;
-                overflow: hidden;
-            }
-            nav a {
-                color: #fff;
-                padding: 15px;
-                display: block;
-                text-decoration: none;
-                text-align: center;
-            }
-            img {
-                max-width: 100%;
-                height: auto;
-                margin: 1rem 0;
+                box-sizing: border-box;
             }
 
-            nav a:hover {
-                background: #575757;
+            :root {
+                --navy: #1a2e44;
+                --slate: #2c3e57;
+                --ocean: #3a7ca5;
+                --teal: #4fa8a8;
+                --sand: #f5f0e8;
+                --warm-white: #faf9f7;
+                --stone: #6b7280;
+                --text: #1f2937;
+                --text-light: #4b5563;
+                --accent: #2d8a6e;
+                --accent-light: #d1ede3;
+                --border: #e5e7eb;
+                --radius: 12px;
             }
-            @media (min-width: 600px) {
-                nav {
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                line-height: 1.7;
+                color: var(--text);
+                background: var(--warm-white);
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* ── NAV ── */
+            .site-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--border);
+                transition: box-shadow 0.3s;
+            }
+            .site-nav.scrolled {
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            }
+            .nav-inner {
+                max-width: 1100px;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 24px;
+                height: 64px;
+            }
+            .nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+                color: var(--navy);
+                font-weight: 600;
+                font-size: 1.05rem;
+            }
+            .nav-logo img {
+                height: 36px;
+                width: auto;
+            }
+            .nav-links {
+                display: flex;
+                gap: 8px;
+                list-style: none;
+            }
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-light);
+                font-size: 0.88rem;
+                font-weight: 500;
+                padding: 6px 14px;
+                border-radius: 6px;
+                transition: all 0.2s;
+            }
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: var(--ocean);
+                background: rgba(58, 124, 165, 0.08);
+            }
+
+            .hamburger {
+                display: none;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 8px;
+            }
+            .hamburger svg {
+                width: 24px;
+                height: 24px;
+                stroke: var(--navy);
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                    position: absolute;
+                    top: 64px;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    flex-direction: column;
+                    padding: 12px;
+                    border-bottom: 1px solid var(--border);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                }
+                .nav-links.open {
                     display: flex;
-                    justify-content: center;
                 }
-                nav a {
-                    flex: 1;
+                .nav-links a {
+                    padding: 12px 16px;
+                    font-size: 1rem;
                 }
+                .hamburger {
+                    display: block;
+                }
+            }
+
+            /* ── HERO ── */
+            .hero {
+                position: relative;
+                min-height: 85vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(
+                    135deg,
+                    var(--navy) 0%,
+                    var(--slate) 50%,
+                    var(--ocean) 100%
+                );
+                overflow: hidden;
+                padding: 100px 24px 80px;
+            }
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("img/bbeach1.jpg") center/cover no-repeat;
+                opacity: 0.15;
+                mix-blend-mode: luminosity;
+            }
+            .hero-content {
+                position: relative;
+                text-align: center;
+                max-width: 780px;
+            }
+            .hero-badge {
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 0.78rem;
+                font-weight: 500;
+                padding: 6px 16px;
+                border-radius: 100px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                margin-bottom: 24px;
+            }
+            .hero h1 {
+                font-family: "Playfair Display", Georgia, serif;
+                font-size: clamp(2.2rem, 5vw, 3.6rem);
+                font-weight: 600;
+                color: white;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+            .hero p {
+                font-size: clamp(1rem, 2vw, 1.15rem);
+                color: rgba(255, 255, 255, 0.8);
+                max-width: 600px;
+                margin: 0 auto 36px;
+                line-height: 1.8;
+            }
+            .hero-cta {
+                display: inline-flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .btn {
+                display: inline-block;
+                padding: 12px 28px;
+                border-radius: 8px;
+                font-size: 0.92rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.25s;
+                cursor: pointer;
+                border: none;
+            }
+            .btn-primary {
+                background: white;
+                color: var(--navy);
+            }
+            .btn-primary:hover {
+                background: var(--sand);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            }
+            .btn-outline {
+                background: transparent;
+                color: white;
+                border: 1.5px solid rgba(255, 255, 255, 0.4);
+            }
+            .btn-outline:hover {
+                border-color: white;
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            /* ── SECTIONS ── */
+            .section {
+                padding: 80px 24px;
+            }
+            .section-alt {
+                background: var(--sand);
             }
             .container {
-                max-width: 800px;
+                max-width: 960px;
                 margin: auto;
-                padding: 0 20px;
-                background: #fff;
             }
-            section {
-                padding: 20px 0;
-                border-bottom: 1px solid #ccc;
-            }
-            h1,
-            h2 {
-                margin-bottom: 10px;
-            }
-            p {
-                margin-bottom: 15px;
-            }
-            footer {
-                background: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-            }
-            ul {
-                list-style-type: disc;
-                padding-left: 20px;
-            }
-            .resources ul {
-                list-style-type: none;
-                padding-left: 0;
-            }
-            .resources li {
-                margin-bottom: 10px;
-            }
-            .resources a {
-                color: #6ab04c;
-                text-decoration: none;
-            }
-            .resources a:hover {
-                text-decoration: underline;
-            }
-            .submit-comments {
-                text-align: center;
-                margin-top: 20px;
-            }
-            .submit-comments a {
-                background: #6ab04c;
-                color: #fff;
-                padding: 10px 20px;
-                text-decoration: none;
-                border-radius: 5px;
-            }
-            .submit-comments a:hover {
-                background: #58a130;
+            .container-wide {
+                max-width: 1100px;
+                margin: auto;
             }
 
-            .header1 {
-                background: #fff;
+            .section-label {
+                display: inline-block;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ocean);
+                margin-bottom: 12px;
             }
-            .head1 {
+            .section-title {
+                font-family: "Playfair Display", Georgia, serif;
+                font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+                font-weight: 600;
+                color: var(--navy);
+                line-height: 1.25;
+                margin-bottom: 16px;
+            }
+            .section-subtitle {
+                font-size: 1.05rem;
+                color: var(--text-light);
+                max-width: 680px;
+                line-height: 1.8;
+                margin-bottom: 48px;
+            }
+
+            /* ── KEY POINTS GRID ── */
+            .points-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                margin-top: 40px;
+            }
+            .point-card {
+                background: white;
+                border-radius: var(--radius);
+                padding: 32px 28px;
+                border: 1px solid var(--border);
+                transition:
+                    box-shadow 0.3s,
+                    transform 0.3s;
+            }
+            .point-card:hover {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+                transform: translateY(-2px);
+            }
+            .point-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.4rem;
+                margin-bottom: 16px;
+            }
+            .point-icon.green {
+                background: #d1fae5;
+            }
+            .point-icon.blue {
+                background: #dbeafe;
+            }
+            .point-icon.amber {
+                background: #fef3c7;
+            }
+            .point-icon.purple {
+                background: #ede9fe;
+            }
+            .point-card h3 {
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: var(--navy);
+                margin-bottom: 8px;
+            }
+            .point-card p {
+                font-size: 0.92rem;
+                color: var(--text-light);
+                line-height: 1.7;
+            }
+
+            /* ── DIAGRAM ── */
+            .diagram-section {
                 text-align: center;
-                color: #003366;
+            }
+            .diagram-section img {
+                max-width: 100%;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+                margin-top: 32px;
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            }
+            .diagram-caption {
+                font-size: 0.85rem;
+                color: var(--stone);
+                margin-top: 12px;
+                font-style: italic;
+            }
+
+            /* ── VIDEO ── */
+            .video-wrapper {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                border-radius: var(--radius);
+                overflow: hidden;
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+                margin-top: 32px;
+            }
+            .video-wrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* ── DIVIDER ── */
+            .journey-divider {
+                padding: 100px 24px;
+                text-align: center;
+                background: linear-gradient(
+                    135deg,
+                    var(--navy) 0%,
+                    var(--ocean) 100%
+                );
+                color: white;
+            }
+            .journey-divider .section-label {
+                color: rgba(255, 255, 255, 0.6);
+            }
+            .journey-divider .section-title {
+                color: white;
+            }
+            .journey-divider p {
+                color: rgba(255, 255, 255, 0.8);
+                max-width: 640px;
+                margin: 0 auto;
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+
+            /* ── CONCERNS ── */
+            .concern-list {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 40px;
+            }
+            .concern {
+                background: white;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+                overflow: hidden;
+                transition: box-shadow 0.3s;
+            }
+            .concern:hover {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            }
+            .concern-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 24px 28px;
+                cursor: pointer;
+                user-select: none;
+            }
+            .concern-number {
+                flex-shrink: 0;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: var(--ocean);
+                color: white;
+                font-size: 0.82rem;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 2px;
+            }
+            .concern-q {
+                flex: 1;
+            }
+            .concern-q h3 {
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--navy);
+                margin-bottom: 2px;
+            }
+            .concern-q .tag {
+                display: inline-block;
+                font-size: 0.7rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                padding: 2px 8px;
+                border-radius: 4px;
+                margin-top: 4px;
+            }
+            .tag-false {
+                background: #fee2e2;
+                color: #991b1b;
+            }
+            .tag-misleading {
+                background: #fef3c7;
+                color: #92400e;
+            }
+            .tag-addressed {
+                background: #d1fae5;
+                color: #065f46;
+            }
+            .concern-toggle {
+                flex-shrink: 0;
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s;
+                margin-top: 4px;
+            }
+            .concern-toggle svg {
+                width: 18px;
+                height: 18px;
+                stroke: var(--stone);
+            }
+            .concern.open .concern-toggle {
+                transform: rotate(180deg);
+            }
+            .concern-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+            }
+            .concern-body-inner {
+                padding: 0 28px 24px 76px;
+                font-size: 0.92rem;
+                color: var(--text-light);
+                line-height: 1.8;
+            }
+            .concern-body-inner p {
+                margin-bottom: 10px;
+            }
+            .concern.open .concern-body {
+                max-height: 600px;
+            }
+
+            /* ── TIMELINE ── */
+            .timeline {
+                position: relative;
+                margin-top: 48px;
+                padding-left: 32px;
+            }
+            .timeline::before {
+                content: "";
+                position: absolute;
+                left: 11px;
+                top: 8px;
+                bottom: 8px;
+                width: 2px;
+                background: var(--border);
+            }
+            .timeline-item {
+                position: relative;
+                padding-bottom: 28px;
+            }
+            .timeline-item:last-child {
+                padding-bottom: 0;
+            }
+            .timeline-dot {
+                position: absolute;
+                left: -32px;
+                top: 4px;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                background: white;
+                border: 3px solid var(--ocean);
+                z-index: 1;
+            }
+            .timeline-item.highlight .timeline-dot {
+                background: var(--ocean);
+                border-color: var(--ocean);
+            }
+            .timeline-date {
+                font-size: 0.78rem;
+                font-weight: 600;
+                color: var(--ocean);
+                margin-bottom: 2px;
+            }
+            .timeline-text {
+                font-size: 0.92rem;
+                color: var(--text-light);
+                line-height: 1.6;
+            }
+
+            /* ── NEWS ── */
+            .news-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin-top: 32px;
+            }
+            .news-card {
+                background: white;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+                padding: 28px;
+                text-decoration: none;
+                color: inherit;
+                transition: all 0.3s;
+                display: flex;
+                flex-direction: column;
+            }
+            .news-card:hover {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+                transform: translateY(-2px);
+            }
+            .news-card .date {
+                font-size: 0.78rem;
+                color: var(--stone);
+                font-weight: 500;
+                margin-bottom: 8px;
+            }
+            .news-card h3 {
+                font-size: 1rem;
+                color: var(--navy);
+                font-weight: 600;
+                line-height: 1.4;
+                margin-bottom: 8px;
+            }
+            .news-card p {
+                font-size: 0.88rem;
+                color: var(--text-light);
+                line-height: 1.6;
+                flex: 1;
+            }
+            .news-card .read-more {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--ocean);
+                margin-top: 12px;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            /* ── RESOURCES ── */
+            .resources-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 16px;
+                margin-top: 32px;
+            }
+            .resource-link {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 20px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                text-decoration: none;
+                color: var(--text);
+                font-size: 0.9rem;
+                transition: all 0.2s;
+            }
+            .resource-link:hover {
+                border-color: var(--ocean);
+                background: rgba(58, 124, 165, 0.03);
+            }
+            .resource-link .icon {
+                flex-shrink: 0;
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                background: #dbeafe;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            /* ── FOOTER ── */
+            .site-footer {
+                background: var(--navy);
+                color: rgba(255, 255, 255, 0.6);
+                text-align: center;
+                padding: 40px 24px;
+                font-size: 0.85rem;
+                line-height: 1.8;
+            }
+            .site-footer a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+            }
+            .site-footer a:hover {
+                color: white;
+            }
+
+            /* ── UTILS ── */
+            .text-center {
+                text-align: center;
+            }
+            .mt-0 {
+                margin-top: 0;
+            }
+            .mb-40 {
+                margin-bottom: 40px;
+            }
+
+            /* ── TWO-COL ── */
+            .two-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+                align-items: center;
+            }
+            @media (max-width: 768px) {
+                .two-col {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                }
+                .why-grid {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+
+            /* ── HIGHLIGHT BOX ── */
+            .highlight-box {
+                background: linear-gradient(135deg, #eef7f3, #e8f4f8);
+                border-left: 4px solid var(--accent);
+                border-radius: 0 var(--radius) var(--radius) 0;
+                padding: 28px 32px;
+                margin: 40px 0;
+            }
+            .highlight-box h3 {
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--accent);
+                margin-bottom: 8px;
+            }
+            .highlight-box p {
+                font-size: 0.95rem;
+                color: var(--text);
+                line-height: 1.7;
+            }
+
+            /* ── FN TIMELINE ── */
+            .fn-timeline {
+                margin-top: 40px;
+            }
+            .fn-timeline-grid {
+                display: grid;
+                grid-template-columns: 140px 1fr;
+                gap: 0;
+                border-left: 2px solid var(--border);
+                margin-left: 12px;
+            }
+            .fn-entry {
+                display: contents;
+            }
+            .fn-date {
+                padding: 10px 16px 10px 20px;
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--ocean);
+                position: relative;
+            }
+            .fn-date::before {
+                content: "";
+                position: absolute;
+                left: -7px;
+                top: 16px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: white;
+                border: 2px solid var(--ocean);
+            }
+            .fn-desc {
+                padding: 10px 0;
+                font-size: 0.88rem;
+                color: var(--text-light);
+                border-bottom: 1px solid var(--border);
+            }
+            .fn-entry:last-child .fn-desc {
+                border-bottom: none;
+            }
+
+            /* ── IMAGES ── */
+            .img-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-top: 32px;
+            }
+            .img-grid img {
+                width: 100%;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            }
+            @media (max-width: 600px) {
+                .img-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Scroll padding for fixed nav */
+            [id] {
+                scroll-margin-top: 80px;
             }
         </style>
     </head>
     <body>
-        <header>
-            <h1>&nbsp;</h1>
-        </header>
-
-        <div class="container">
-            <section class="head1">
-                <h1>Baker Beach Slope and Shoreline Protection Project</h1>
-            </section>
-
-            <section id="overview">
-                <p></p>
-
-                <p>
-                    <strong>News </strong> (January 27th, 2026):
-                    <a
-                        href="https://gulfislandsdriftwood.com/opinion-a-missed-opportunity-for-leadership-on-shoreline-protection/"
-                        >A Missed Opportunity for Leadership on Shoreline
-                        Protection</a
-                    >.
-                </p>
-                <p>
-                    <strong>News</strong> (January 14th, 2026):
-                    <a
-                        href="https://gulfislandsdriftwood.com/in-response-islands-trust-rejects-green-shoring-proposal/"
-                        >Islands Trust rejects green shoring proposal</a
-                    >.
-                </p>
-                <hr />
-                <p></p>
-                <p>
-                    <b>Overview of proposal:</b> Baker Beach has seen an
-                    alarming increase of erosion due to intensified king tides
-                    and winter storms over the past few years. As local
-                    residents, we are working to mitigate this environmental
-                    damage to safeguard the beach’s slope, shoreline, and
-                    surrounding properties. Protecting this area is essential
-                    not only for maintaining the landscape but also for
-                    preserving critical habitats for
-                    <a
-                        href="https://bakerbeach.ca/docs/letter_advice_fisheries.pdf"
-                        alt="Erosion Mitigation, Booth Inlet, Vesuvius – Implementation of Measures to Avoid and
-                        Mitigate the Potential for Prohibited Effects to Fish and Fish Habitat."
-                        >marine species and wildlife</a
+        <!-- ════════ NAVIGATION ════════ -->
+        <nav class="site-nav" id="nav">
+            <div class="nav-inner">
+                <a href="#" class="nav-logo">
+                    Baker Beach
+                </a>
+                <button
+                    class="hamburger"
+                    onclick="document.querySelector('.nav-links').classList.toggle('open')"
+                    aria-label="Menu"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke-width="2"
+                        stroke-linecap="round"
                     >
-                    (DFO, 2024). The trees along the shore, vital to the
-                    stability of the slope, are home to eagles and bats whose
-                    ecosystems are directly threatened by further erosion. Doing
-                    nothing risks losing not only land and vegetation but also
-                    these essential habitats—something that anyone who walks the
-                    beach can see is worth protecting.
-                </p>
-                <p></p>
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#the-problem">Current Proposal</a></li>
+                    <li><a href="#design">Design</a></li>
+                    <li><a href="#environment">Environment</a></li>
+                    <li><a href="#journey">Our Journey</a></li>
+                    <li><a href="#concerns">Concerns &amp; Facts</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ════════ HERO ════════ -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Salt Spring Island, BC</span>
+                <h1>Baker Beach<br />Shoreline Project</h1>
                 <p>
-                    We hope this website answers some concerns that we have seen
-                    on social media, news paper articles and a petition that is
-                    circulating. Please review this information, and then submit
-                    comments if you have any questions – we welcome your
-                    feedback.
+                    A responsible, science-backed approach to protecting our
+                    coastline, designed to work with nature, informed by
+                    community feedback, and built for long-term resilience.
                 </p>
-                <div style="padding: 56.25% 0 0 0; position: relative">
-                    <iframe
-                        src="https://player.vimeo.com/video/1086589972?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                        frameborder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                        style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                        "
-                        title="BakerBeach Shoreline Stability Project"
-                    ></iframe>
+                <div class="hero-cta">
+                    <a href="#the-problem" class="btn btn-primary"
+                        >View Current Proposal</a
+                    >
+                    <a href="#journey" class="btn btn-outline"
+                        >Our Journey So Far</a
+                    >
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="purpose">
-                <p>
-                    <strong>Purpose of Project:</strong> Stabilize the slope and
-                    shoreline along Baker Beach. The stabilization methods are
-                    nature-based, including vegetation enhancement and
-                    bioengineering, beach nourishment, and wave-energy
-                    dissipating non-uniform rock clusters to supplement the
-                    natural rock clusters on the beach.
-                </p>
-            </section>
+        <!-- ════════ WHY THIS PROJECT MATTERS ════════ -->
+        <section class="section" style="padding-bottom: 0" id="the-problem">
+            <div class="container">
+                <div
+                    class="why-grid"
+                    style="
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 48px;
+                        align-items: center;
+                    "
+                >
+                    <div>
+                        <span class="section-label">The Problem</span>
+                        <h2 class="section-title">
+                            Why This Project Is Needed
+                        </h2>
+                        <p
+                            style="
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                                margin-bottom: 16px;
+                            "
+                        >
+                            Baker Beach is losing ground, literally.
+                            Intensifying king tides and winter storms driven by
+                            climate change have dramatically accelerated erosion
+                            along the shoreline. The slope is retreating, mature
+                            trees that stabilize the hillside and shelter eagles
+                            and bats are being undermined, and the sediment that
+                            sustains nearshore habitat is washing away.
+                        </p>
+                        <p
+                            style="
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                                margin-bottom: 16px;
+                            "
+                        >
+                            The erosion is already severe enough that the
+                            <strong
+                                >Capital Regional District reinforced both main
+                                beach access points with rock walls</strong
+                            >
+                            to keep them safe. But the adjacent shoreline
+                            remains unprotected, and geotechnical experts warn
+                            that once toe support is lost and the slope begins
+                            to retreat, the damage becomes
+                            <strong>difficult or impossible to reverse</strong>.
+                        </p>
+                        <p
+                            style="
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                            "
+                        >
+                            This is not a future risk. It is happening now.
+                            Acting early with a responsible, nature-based
+                            approach is both more effective and more
+                            environmentally sound than waiting for a crisis and
+                            resorting to emergency hard armouring after it's too
+                            late.
+                        </p>
+                    </div>
+                    <div>
+                        <img
+                            src="img/erosion1.jpeg"
+                            alt="Erosion damage at Baker Beach shoreline"
+                            style="
+                                width: 100%;
+                                border-radius: 12px;
+                                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+                            "
+                        />
+                        <p
+                            style="
+                                font-size: 0.82rem;
+                                color: var(--stone);
+                                font-style: italic;
+                                margin-top: 8px;
+                                text-align: center;
+                            "
+                        >
+                            Active erosion at Baker Beach
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="access">
-                <p>
-                    <strong>Does this project restrict beach access?</strong>
-                    Absolutely not. No access will be affected, and the beach
-                    will always be accessible.
-                </p>
-            </section>
-
-            <section id="Eelgrass">
-                <p>
-                    <strong>
-                        Will this damage the sensitive Eel Grass areas and The
-                        Midshipmen Spawning Habitat?
-                    </strong>
-                    To address this concern directly  we hired a diver to
-                    collect samples of sediment around the eel grass beds. The
-                    purpose of this exercise  is to demonstrate that gravels
-                    from the slopes aren’t migrating to eel grass beds, so if
-                    additional material was added there, it shouldn’t be
-                    expected to mobilize there either.  As demonstrated by the
-                    video below the size of the sediments found in the eelgrass
-                    is not the same as the ones by the areas where additional
-                    material will be added.
+        <!-- ════════ CURRENT PROPOSAL ════════ -->
+        <section class="section" id="proposal">
+            <div class="container">
+                <span class="section-label">2026 Proposal</span>
+                <h2 class="section-title">
+                    A New Approach, Informed by Community Feedback
+                </h2>
+                <p class="section-subtitle">
+                    After listening to community concerns about the scope of the
+                    original multi-property green shoring proposal, we've
+                    submitted a focused, single-property application for a
+                    <strong>hybrid naturalized rock revetment</strong>, a
+                    smaller-scale solution designed by professional geotechnical
+                    engineers and evaluated by qualified environmental
+                    professionals.
                 </p>
 
-                <ul>
-                    <li>
-                        Construction will be completed during periods of low
-                        tide (work in the dry).
-                    </li>
-                    <li>
-                        The works will be overseen by an Environmental Monitor
-                        (EM).
-                    </li>
-                    <li>
-                        Enhancement of backshore vegetation through planting of
-                        native species, particularly overhanging species such as
-                        Oceanspray.
-                    </li>
-                    <li>
-                        Suitable substrate for forage fish spawning in the upper
-                        reaches of the beach profile will be applied.
-                    </li>
-                    <li>
-                        Borrowed substrate with native sediments within the
-                        project area will be matched (mimic natural conditions).
-                    </li>
-                    <li>
-                        We will maintain the current natural beach slope to the
-                        extent possible.
-                    </li>
-                    <li>
-                        We will execute beach nourishment activities when birds
-                        or other mobile organisms are the least active.
-                    </li>
-                    <li>
-                        We will avoid mapped suitable spawning forage fish
-                        habitat and ensure that the timing of project works does
-                        not interfere with forage fish spawning.
-                    </li>
-                    <li>
-                        We will remove invasive species along the backshore and
-                        re-plant with native species.
-                    </li>
-                </ul>
-            </section>
+                <div class="highlight-box">
+                    <h3>Why this proposal is different</h3>
+                    <p>
+                        The most common concern raised during public
+                        consultation was that the original proposal involved
+                        "too much material" being added to the beach. We heard
+                        that feedback. This new design is a single-property
+                        solution that directly addresses the scale concern while
+                        still providing effective, long-term shoreline
+                        protection. It represents the best path forward: a
+                        science-based compromise that respects both the
+                        environment and the community.
+                    </p>
+                </div>
 
-            <section id="natural-v-greenshore">
-                <p>
-                    <strong> Is this a Green Shore approach? </strong>
-                </p>
-                <p>
-                    Green Shores is a trademarked program of the Stewardship
-                    Centre for BC. It promotes nature-based shoreline solutions
-                    and includes a voluntary rating system. Projects are not
-                    required to enroll in that program, and this one did not.
-                </p>
-                <p>
-                    That said, the design approach is the same in substance. The
-                    project uses nature-based shoreline mitigation methods drawn
-                    from the same best-practice resources, including the
-                    Washington State Marine Shoreline Design Guidelines and
-                    other established coastal stewardship references.
-                </p>
-                <p>
-                    The intent is to work with natural beach processes and avoid
-                    hard armouring such as rock walls. This is the approach
-                    preferred by the Islands Trust and the relevant provincial
-                    ministries. So while the project is not branded under the
-                    Green Shores program, it applies the same nature-based
-                    principles to achieve the same objectives.
-                </p>
-            </section>
+                <div class="points-grid">
+                    <div class="point-card">
+                        <div class="point-icon green">&#x1f331;</div>
+                        <h3>Nature-Based Design</h3>
+                        <p>
+                            Uses a naturalized rock revetment with
+                            bioengineering elements including soil wraps,
+                            live-stake willows, and native plantings, designed
+                            to blend
+                            with the existing shoreline rather than fight it.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <div class="point-icon blue">&#x1f30a;</div>
+                        <h3>Single-Property Scope</h3>
+                        <p>
+                            Scaled down from the original multi-property
+                            application to address a single lot, significantly
+                            reducing the overall footprint and volume of
+                            material involved.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <div class="point-icon amber">&#x1f6e1;&#xfe0f;</div>
+                        <h3>Geotechnically Sound</h3>
+                        <p>
+                            Designed by Ryzuk Geotechnical with a gabion basket
+                            and rock wall structure, engineered for long-term
+                            slope stability and minimum environmental
+                            disturbance.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <div class="point-icon purple">&#x1f3e1;</div>
+                        <h3>Preserves What Matters</h3>
+                        <p>
+                            Protects mature trees critical for slope stability,
+                            eagle and bat habitat, and the natural beauty of the
+                            shoreline that all Salt Spring residents value.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="natural-protection">
-                <p>
-                    <strong>
-                        Why not build a rock-wall to mitigate erosion from
-                        rising sea levels?
-                    </strong>
-                    The province is opposed to rock-walls for aesthetic and
-                    environmental reasons. Instead, we are using a science-based
-                    approach that aims to “preserve or restore physical
-                    processes such as the natural actions of water and sediment
-                    movement that maintain healthy shorelines. Maintain or
-                    enhance habitat function and diversity along the shoreline
-                    by making shorelines more secure against erosion and
-                    flooding. And prevent or reduce pollutants entering the
-                    aquatic environment.” We have worked with professional
-                    biologists and geo-tech engineers to develop this
-                    nature-based solution that puts equal focus on mitigating
-                    slope erosion from above by rejuvenating it with native
-                    plants, and shoreline protection from below with an
-                    intermittent nature-based shallow berm that mimics the
-                    naturally occurring substrate.
+        <!-- ════════ TECHNICAL DESIGN ════════ -->
+        <section class="section section-alt" id="design">
+            <div class="container">
+                <span class="section-label">Technical Design</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">
+                    The hybrid revetment is designed to stabilize the toe of the
+                    slope using natural rock and bioengineering techniques,
+                    preventing further erosion while enhancing ecological
+                    function.
                 </p>
-            </section>
 
-            <section id="similar-cases">
-                <p>
-                    <strong>Project renderings: </strong> The images below are
-                    renderings of what the beach will look like if our shoreline
-                    protection project is implemented.
-                </p>
-                <p>
+                <div class="diagram-section">
                     <img
-                        src="img/beach_proposal1.jpeg"
-                        alt="Before and after shoreline restoration"
+                        src="docs-new/hybrid-rockwall.png"
+                        alt="Cross-section diagram of the hybrid naturalized rock revetment design showing gabion baskets, native soils, geotextile fabric, and bioengineering elements"
                     />
-                </p>
-                <p>
-                    <img
-                        src="img/beach_proposal2.jpeg"
-                        alt="Before and after shoreline restoration"
-                    />
-                </p>
-            </section>
+                    <p class="diagram-caption">
+                        Revetment section (soil subgrade and cutslope), Scale
+                        1:40. Designed by Ryzuk Geotechnical.
+                    </p>
+                </div>
 
-            <section id="nature-based">
-                <p>
-                    <strong>
-                        How does our project imitate the natural shoreline?
-                    </strong>
-                    This approach uses several methods to recreate natural
-                    processes. Beach nourishment, for example, mimics sediment
-                    deposits that typically result from landslides, bringing
-                    coarse sediment to the backshore, foreshore, and low-tide
-                    areas. By placing sediment in a mound shape, the initial
-                    setup looks like a natural landslip, allowing waves and
-                    currents to naturally redistribute materials along the
-                    shore.
+                <div class="points-grid" style="margin-top: 48px">
+                    <div class="point-card">
+                        <h3>Rock Revetment</h3>
+                        <p>
+                            Lower courses use a minimum 1.5m diameter rock base.
+                            Gabion baskets are sloped no steeper than 1H:1V and
+                            backfilled with free-draining angular material.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Bioengineering</h3>
+                        <p>
+                            Soil wraps and live-stake willows (per biologist
+                            recommendations) stabilize the upper slope, promote
+                            root reinforcement, and create natural habitat as
+                            they mature.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Tree Preservation</h3>
+                        <p>
+                            Wall height and placement are adjusted to
+                            accommodate existing trees as much as practicable,
+                            protecting the root systems critical for ongoing
+                            slope stability.
+                        </p>
+                    </div>
+                    <div class="point-card">
+                        <h3>Environmental Safeguards</h3>
+                        <p>
+                            Geotextile filter fabric pinned to native soil slope
+                            prevents sediment migration. All work supervised by
+                            an Environmental Monitor and timed to fisheries
+                            windows.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════ ENVIRONMENT ════════ -->
+        <section class="section" id="environment">
+            <div class="container">
+                <span class="section-label">Environmental Protection</span>
+                <h2 class="section-title">
+                    Designed to Protect Marine &amp; Terrestrial Habitat
+                </h2>
+                <p class="section-subtitle">
+                    Every aspect of this project has been evaluated by qualified
+                    environmental professionals (Corvidae Environmental Ltd.) to
+                    ensure it protects the sensitive ecosystems of Baker Beach.
                 </p>
 
-                <p>
-                    The design prioritizes using clean pebbles and coarse
-                    sediment that resemble what would naturally appear after a
-                    landslide. Non-uniform clusters of rocks are also
-                    strategically placed along the foreshore, mimicking the
-                    existing boulders that are already present. These clusters
-                    help absorb wave energy and contribute to shoreline
-                    stability.
-                </p>
-                <p>
-                    There will be no large trucks on the beach. We will either
-                    bring the material in from on top or by barge and distribute
-                    the material by hand and if needed with a small machine that
-                    uses vegetable oil. In the backshore and foreshore areas, we
-                    will encourage the growth of salt-tolerant plants through
-                    careful planting. Over time, salt-tolerant grasses, sedges,
-                    and low shrubs may naturally develop on stable sediment
-                    deposits, even through stormy weather. Native salt-tolerant
-                    species are being considered for planting to help stabilize
-                    the sediment and make the shoreline more resilient. We have
-                    been working with a biologist who has catalogued the plants
-                    that naturally occur along this shoreline.
-                </p>
-            </section>
-
-            <section id="vegetation">
-                <p>
-                    <strong>
-                        What about vegetation that may grow along the shore?
-                    </strong>
-                    In the backshore and foreshore areas, we expect to encourage
-                    the growth of salt-tolerant plants through bioengineering
-                    techniques and careful planting. Over time, salt-tolerant
-                    grasses, sedges, and low shrubs may naturally develop on
-                    stable sediment deposits, even through stormy weather.
-                    Native salt-tolerant species are being considered for
-                    planting to help stabilize the sediment and make the
-                    shoreline more resilient.
-                </p>
-            </section>
-
-            <section id="stakeholder">
-                <p>
-                    <strong> Stakeholder Consultation: </strong> We have reached
-                    out to 13 Indigenous communities who have hereditary rights
-                    in the area for their comments and consideration. We are
-                    continuing to follow up with the groups, and in particular
-                    the Penelakut who have a foreshore tenure along the shores
-                    for claming and oyster farming. First Nations engagement is
-                    critical to us too and is a requirement as part of this
-                    process, via the Heritage Act permit process, along with the
-                    Crown Land Tenure Process.
-                </p>
-            </section>
-
-            <section id="why-now">
-                <p>
-                    <strong>Why Now? </strong> Climate change is driving more
-                    severe environmental impacts, including erosion along our
-                    shorelines. With this project, we aim to protect the slope,
-                    shoreline, vegetation, and properties along Baker Beach. By
-                    taking action now, we can help preserve the natural beauty
-                    and stability of the area against climate-driven changes
-                    before it's too late. We hope that others on the island
-                    experiencing similar shoreline loss because of climate
-                    change can use our project as an example.
-                </p>
-                <p>
-                    We continue to be open to dialogue and invite anyone with
-                    comments to reach out.
-                </p>
-            </section>
-            <section id="resources" class="resources">
-                <h2>Resources</h2>
-                <ul>
-                    <li>
-                        <a
-                            href="https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/natural-resource-use/land-water-use/crown-land/crown-land-uses/greenshores_guide_to_foreshore.pdf"
+                <div class="two-col">
+                    <div>
+                        <p
+                            style="
+                                margin-bottom: 16px;
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                            "
                         >
-                            Nature-based solutions
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://www.fisheries.noaa.gov/story-map/living-shorelines-provide-nature-based-approach-coastal-protection"
+                            The environmental assessment confirms that with the
+                            recommended mitigation measures, the project will
+                            result in
+                            <strong
+                                >no net loss of productive fish habitat
+                                capacity</strong
+                            >
+                            and
+                            <strong>no significant residual effects</strong> on
+                            the marine environment.
+                        </p>
+                        <p
+                            style="
+                                margin-bottom: 16px;
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                            "
                         >
-                            Living Shorelines Provide Nature-Based Approach to
-                            Coastal Protection | NOAA Fisheries
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://estuaries.org/living-shorelines/">
-                            Living Shorelines ~ Restore America's Estuaries
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://comment.nrs.gov.bc.ca/api/public/document/6720089410f6e90022aeff7e/download"
+                            Key protections include construction during low tide
+                            (work in the dry), professional environmental
+                            monitoring during all works, avoidance of eelgrass
+                            beds and forage fish spawning habitat, and native
+                            species planting to enhance backshore vegetation.
+                        </p>
+                        <p
+                            style="
+                                font-size: 0.95rem;
+                                color: var(--text-light);
+                                line-height: 1.8;
+                            "
                         >
-                            Geohazard Assessment of Lands: Engineering Report
-                            for Coastal Erosion Mitigation (TRE Environmental
-                            Services)
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://comment.nrs.gov.bc.ca/api/public/document/67200b4510f6e90022aeff80/download"
-                        >
-                            Environmental Assessment (Corvidae) Part 1
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://comment.nrs.gov.bc.ca/api/public/document/67200b4510f6e90022aeff81/download"
-                            >Environmental Assessment (Corvidae) Part 2
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://comment.nrs.gov.bc.ca/api/public/document/66f1b447ccd83e00211b785e/download"
-                        >
-                            Crown Land Application Management Plan
-                        </a>
-                    </li>
-                    <li>
-                        <a href="docs/letter_advice_fisheries.pdf">
-                            Erosion Mitigation, Booth Inlet, Vesuvius –
-                            Implementation of Measures to Avoid and Mitigate the
-                            Potential for Prohibited Effects to Fish and Fish
-                            Habitat
-                        </a>
-                    </li>
-                </ul>
+                            The project has received its
+                            <strong>Heritage Conservation Act permit</strong>
+                            (issued November 2024) and follows all DFO guidance
+                            for avoiding prohibited effects to fish and fish
+                            habitat.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://player.vimeo.com/video/1086589972?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                frameborder="0"
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                                title="BakerBeach Shoreline Stability Project"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <p><img src="img/bbeachoutline.jpeg" /></p>
-            </section>
+        <!-- ════════ JOURNEY DIVIDER ════════ -->
+        <div class="journey-divider" id="journey">
+            <span class="section-label">Part Two</span>
+            <h2 class="section-title" style="margin-bottom: 16px">
+                Our Journey So Far
+            </h2>
+            <p>
+                Baker Beach has seen alarming shoreline erosion in recent years.
+                What started as a collaborative effort among neighbours to
+                protect this shared coastline has evolved through regulatory
+                processes, public debate, and a judicial review. Here's what
+                happened, and why we're still working toward a solution.
+            </p>
         </div>
 
-        <footer></footer>
+        <!-- ════════ BACKGROUND ════════ -->
+        <section class="section section-alt">
+            <div class="container">
+                <span class="section-label">Background</span>
+                <h2 class="section-title">The Story of Baker Beach</h2>
+                <p
+                    style="
+                        font-size: 0.95rem;
+                        color: var(--text-light);
+                        line-height: 1.8;
+                        margin-bottom: 20px;
+                    "
+                >
+                    Baker Beach has seen a noticeable increase in shoreline
+                    erosion in recent years, driven by stronger king tides and
+                    winter storms linked to climate change. The erosion is
+                    reshaping the shoreline, affecting wildlife habitat, public
+                    access, and nearby properties. The impacts have been
+                    significant enough that the
+                    <strong
+                        >Capital Regional District (CRD) reinforced the two main
+                        beach access points</strong
+                    >
+                    from Quarry Road and Baker Road with rock walls to maintain
+                    safe access.
+                </p>
+                <p
+                    style="
+                        font-size: 0.95rem;
+                        color: var(--text-light);
+                        line-height: 1.8;
+                        margin-bottom: 20px;
+                    "
+                >
+                    To help mitigate further erosion, a group of neighbouring
+                    property owners (originally four, then three) chose to work
+                    collaboratively on a shared nature-based shoreline
+                    protection approach, a "green shoring" proposal that was
+                    consistent with provincial best practices and supported by
+                    both the Province and Fisheries and Oceans Canada.
+                </p>
+                <p
+                    style="
+                        font-size: 0.95rem;
+                        color: var(--text-light);
+                        line-height: 1.8;
+                        margin-bottom: 20px;
+                    "
+                >
+                    Despite this professional, evidence-based approach, the
+                    proposal met significant public opposition, much of it
+                    based on misinformation spread through social media, a
+                    petition, and local media. The Islands Trust Local Trust
+                    Committee (LTC) ultimately rejected the development permit
+                    application, and a judicial review at the BC Supreme Court
+                    upheld that decision.
+                </p>
+                <p
+                    style="
+                        font-size: 0.95rem;
+                        color: var(--text-light);
+                        line-height: 1.8;
+                    "
+                >
+                    The core irony, as noted in the
+                    <a
+                        href="https://gulfislandsdriftwood.com/opinion-a-missed-opportunity-for-leadership-on-shoreline-protection/"
+                        style="color: var(--ocean)"
+                        >Gulf Islands Driftwood</a
+                    >, is that professionally designed, peer-reviewed solutions,
+                    supported by the very agencies responsible for
+                    environmental protection, were treated as unacceptable. The
+                    shoreline continues to erode, and the need for action has
+                    not gone away. That is why we have submitted this new,
+                    scaled-down proposal.
+                </p>
+
+                <div class="img-grid">
+                    <img
+                        src="img/beach_proposal1.jpeg"
+                        alt="Before and after rendering of Baker Beach shoreline restoration"
+                    />
+                    <img
+                        src="img/beach_proposal2.jpeg"
+                        alt="Before and after rendering of Baker Beach shoreline restoration"
+                    />
+                </div>
+                <p
+                    style="
+                        font-size: 0.82rem;
+                        color: var(--stone);
+                        font-style: italic;
+                        margin-top: 8px;
+                        text-align: center;
+                    "
+                >
+                    Renderings from the original nature-based shoreline
+                    protection proposal
+                </p>
+            </div>
+        </section>
+
+        <!-- ════════ CONCERNS ════════ -->
+        <section class="section section-alt" id="concerns">
+            <div class="container">
+                <span class="section-label">Setting the Record Straight</span>
+                <h2 class="section-title">
+                    Community Concerns &amp; The Facts
+                </h2>
+                <p class="section-subtitle">
+                    Many concerns were raised during the public comment period.
+                    We take all feedback seriously. Below are the most common
+                    concerns and the factual responses, supported by
+                    professional assessments and the public record.
+                </p>
+
+                <div class="concern-list">
+                    <!-- 1 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">1</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "Too much material / fill will be added to
+                                    the beach"
+                                </h3>
+                                <span class="tag tag-addressed"
+                                    >Addressed in New Proposal</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    This was the most frequently raised concern,
+                                    and we heard it clearly. The original
+                                    multi-property proposal involved beach
+                                    nourishment across a larger area.
+                                    <strong
+                                        >The new proposal is a single-property
+                                        hybrid rock revetment</strong
+                                    >
+                                    that significantly reduces the scale and
+                                    volume of material. The design uses targeted
+                                    rock placement and bioengineering rather
+                                    than broad beach nourishment. This is
+                                    precisely why we changed our approach: to
+                                    directly address this concern while still
+                                    protecting the shoreline.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">2</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "The public was not properly informed or
+                                    consulted"
+                                </h3>
+                                <span class="tag tag-false"
+                                    >Not Supported by the Record</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    The original application was a
+                                    <strong
+                                        >staff-level decision under Islands
+                                        Trust policy</strong
+                                    >, not a Local Trust Committee decision -
+                                    meaning it did not require a public hearing.
+                                    The correct process was followed. Public
+                                    consultation occurred through the provincial
+                                    Crown Land application process, which is the
+                                    standard mechanism for community input on
+                                    foreshore projects. Additionally, the
+                                    website bakerbeach.ca was created
+                                    specifically to inform the public and answer
+                                    questions, going above and beyond what was
+                                    required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">3</span>
+                            <div class="concern-q">
+                                <h3>"First Nations were not consulted"</h3>
+                                <span class="tag tag-false"
+                                    >Not Supported by the Record</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    This is categorically false. We've engaged
+                                    extensively with Indigenous communities
+                                    throughout the entire project. We reached
+                                    out to 13 First Nations communities with
+                                    hereditary rights in the area. Engagement
+                                    with the Penelakut Tribe began in August
+                                    2022, more than two years before the permit
+                                    was issued, and has been continuous,
+                                    including phone calls, letters, video
+                                    conferences, in-person site meetings, and
+                                    participation in a Penelakut potluck at
+                                    Baker Beach. We have also engaged with the
+                                    Tsawout First Nation, including site visits.
+                                    A Heritage Conservation Act Permit was
+                                    issued in November 2024 following full
+                                    compliance with consultation requirements.
+                                    <a
+                                        href="#fn-timeline"
+                                        style="color: var(--ocean)"
+                                        >See the full timeline below.</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">4</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "This will damage eelgrass beds and spawning
+                                    habitat"
+                                </h3>
+                                <span class="tag tag-false"
+                                    >Not Supported by Evidence</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    A diver was hired to collect sediment
+                                    samples around the eelgrass beds,
+                                    demonstrating that gravels from the slopes
+                                    are not migrating to eelgrass areas. The
+                                    environmental assessment by Corvidae
+                                    Environmental confirms
+                                    <strong
+                                        >no net loss of productive fish habitat
+                                        capacity</strong
+                                    >
+                                    with the recommended mitigation measures.
+                                    All work will be done during low tide,
+                                    overseen by an Environmental Monitor, and
+                                    timed to avoid forage fish spawning periods.
+                                    DFO provided a letter of advice confirming
+                                    measures to avoid and mitigate potential
+                                    effects to fish and fish habitat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">5</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "This will restrict public beach access"
+                                </h3>
+                                <span class="tag tag-false"
+                                    >Not Supported by the Record</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    Absolutely not. The beach has always been
+                                    and will always remain fully accessible to
+                                    the public. The project works on the slope
+                                    and immediate foreshore. It does not block,
+                                    impede, or alter any beach access paths. The
+                                    CRD's own reinforcement of beach access
+                                    points with rock walls demonstrates that
+                                    some structural intervention is already
+                                    normal and accepted for this beach.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">6</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "There is no urgency. The erosion is not
+                                    that serious"
+                                </h3>
+                                <span class="tag tag-false"
+                                    >Not Supported by Evidence</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    Professional geotechnical assessment
+                                    confirms ongoing, incremental erosion that
+                                    presents a foreseeable risk to slope
+                                    integrity over time. The geotechnical
+                                    experts note that loss of toe support and
+                                    progressive slope retreat are
+                                    <strong
+                                        >difficult or impossible to reverse once
+                                        they occur</strong
+                                    >. Early intervention using nature-based
+                                    methods is considered more environmentally
+                                    responsible and cost-effective than reactive
+                                    hard armouring after significant
+                                    degradation. The mature trees on the slope,
+                                    home to eagles and bats, are directly
+                                    threatened by continued erosion.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="concern">
+                        <div
+                            class="concern-header"
+                            onclick="toggleConcern(this)"
+                        >
+                            <span class="concern-number">7</span>
+                            <div class="concern-q">
+                                <h3>
+                                    "This is just for the benefit of private
+                                    property owners"
+                                </h3>
+                                <span class="tag tag-misleading"
+                                    >Misleading</span
+                                >
+                            </div>
+                            <span class="concern-toggle"
+                                ><svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                >
+                                    <polyline points="6 9 12 15 18 9" /></svg
+                            ></span>
+                        </div>
+                        <div class="concern-body">
+                            <div class="concern-body-inner">
+                                <p>
+                                    While property protection is one element,
+                                    the project's primary objectives include
+                                    protecting marine and riparian habitat,
+                                    preserving mature trees that support
+                                    wildlife (eagles, bats), stabilizing the
+                                    slope to prevent uncontrolled sediment
+                                    delivery to the nearshore environment, and
+                                    enhancing native vegetation. Doing nothing
+                                    risks losing not only land and structures
+                                    but also critical habitat, something anyone
+                                    who walks Baker Beach can see is worth
+                                    protecting. The CRD itself has already
+                                    intervened with rock walls to protect public
+                                    access infrastructure.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════ FIRST NATIONS TIMELINE ════════ -->
+        <section class="section" id="fn-timeline">
+            <div class="container">
+                <span class="section-label">Engagement</span>
+                <h2 class="section-title">
+                    First Nations Consultation Timeline
+                </h2>
+                <p class="section-subtitle">
+                    We are committed to meaningful, ongoing engagement with
+                    Indigenous communities. This timeline documents our
+                    consultation efforts, which began in 2022 and continue to
+                    this day.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">August 5, 2022</div>
+                        <div class="timeline-text">
+                            Initial outreach to Penelakut Tribe via project
+                            coordinator
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">August 16, 2022</div>
+                        <div class="timeline-text">
+                            Phone call and voicemail to Josh James, Penelakut
+                            Tribe
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">October 2022</div>
+                        <div class="timeline-text">
+                            Letter outreach to First Nations communities
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-text">
+                            Heritage Conservation Act (HCA) application referral
+                            submitted
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">March 8, 2024</div>
+                        <div class="timeline-text">
+                            Penelakut project update via letter and email
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">September 13, 2024</div>
+                        <div class="timeline-text">
+                            Update from WLRS regarding Tsawout First Nation
+                            involvement requirements
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">November 7, 2024</div>
+                        <div class="timeline-text">
+                            <strong
+                                >Heritage Conservation Act Permit issued</strong
+                            >
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">November 14, 2024</div>
+                        <div class="timeline-text">
+                            Update from WLRS regarding Penelakut questions
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">December 16, 2024</div>
+                        <div class="timeline-text">
+                            Video call between Penelakut and project technical
+                            team
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">December 20, 2024</div>
+                        <div class="timeline-text">
+                            Updated guidance from WLRS regarding Penelakut
+                            questions
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">February 12, 2025</div>
+                        <div class="timeline-text">
+                            Site meeting with Tsawout First Nation at Baker
+                            Beach
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">March 7, 2025</div>
+                        <div class="timeline-text">
+                            Update to Penelakut regarding WLRS directives
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">May 14, 2025</div>
+                        <div class="timeline-text">
+                            Participation in Penelakut potluck at Baker Beach
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">June 25, 2025</div>
+                        <div class="timeline-text">
+                            Update to Penelakut regarding results from diver and
+                            geo assessment of aggregates collected
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════ FOOTER ════════ -->
+        <footer class="site-footer">
+            <div class="container">
+                <p style="margin-bottom: 8px">
+                    <strong style="color: rgba(255, 255, 255, 0.9)"
+                        >Baker Beach Shoreline Restoration Project</strong
+                    >
+                </p>
+                <p>Salt Spring Island, British Columbia</p>
+                <p style="margin-top: 8px">
+                    <a
+                        href="https://gulfislandsdriftwood.com/in-response-islands-trust-rejects-green-shoring-proposal/"
+                        >Driftwood Response</a
+                    >
+                    &nbsp;&middot;&nbsp;
+                    <a
+                        href="https://gulfislandsdriftwood.com/opinion-a-missed-opportunity-for-leadership-on-shoreline-protection/"
+                        >Driftwood Opinion</a
+                    >
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // Sticky nav shadow
+            const nav = document.getElementById("nav");
+            window.addEventListener("scroll", () => {
+                nav.classList.toggle("scrolled", window.scrollY > 10);
+            });
+
+            // Concern accordion
+            function toggleConcern(header) {
+                const concern = header.closest(".concern");
+                concern.classList.toggle("open");
+            }
+
+            // Close mobile nav on link click
+            document.querySelectorAll(".nav-links a").forEach((a) => {
+                a.addEventListener("click", () => {
+                    document
+                        .querySelector(".nav-links")
+                        .classList.remove("open");
+                });
+            });
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll("[id]");
+            const navLinks = document.querySelectorAll(".nav-links a");
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            navLinks.forEach((link) => {
+                                link.classList.toggle(
+                                    "active",
+                                    link.getAttribute("href") === "#" + id,
+                                );
+                            });
+                        }
+                    });
+                },
+                { rootMargin: "-20% 0px -80% 0px" },
+            );
+            sections.forEach((s) => observer.observe(s));
+        </script>
     </body>
 </html>
