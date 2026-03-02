@@ -176,12 +176,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(
-                    135deg,
-                    var(--navy) 0%,
-                    var(--slate) 50%,
-                    var(--ocean) 100%
-                );
+                background: url("img/hero-bg.jpg") center/cover no-repeat;
                 overflow: hidden;
                 padding: 100px 24px 80px;
             }
@@ -189,9 +184,12 @@
                 content: "";
                 position: absolute;
                 inset: 0;
-                background: url("img/beach.png") center/cover no-repeat;
-                opacity: 0.15;
-                mix-blend-mode: luminosity;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.35) 0%,
+                    rgba(0, 0, 0, 0.15) 50%,
+                    rgba(0, 0, 0, 0.3) 100%
+                );
             }
             .hero-content {
                 position: relative;
@@ -218,13 +216,15 @@
                 color: white;
                 line-height: 1.2;
                 margin-bottom: 20px;
+                text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
             }
             .hero p {
                 font-size: clamp(1rem, 2vw, 1.15rem);
-                color: rgba(255, 255, 255, 0.8);
+                color: rgba(255, 255, 255, 0.9);
                 max-width: 600px;
                 margin: 0 auto 36px;
                 line-height: 1.8;
+                text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
             }
             .hero-cta {
                 display: inline-flex;
