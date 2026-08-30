@@ -1,5 +1,7 @@
 # macOS
 .DS_Store
 
-# Docs folder
-docs/
+# Docs folder (ignored by default, except the reports published on the site)
+docs/*
+!docs/harper-baker-beach-observations-2023.pdf
+!docs/dfo-letter-of-advice-2024.pdf
